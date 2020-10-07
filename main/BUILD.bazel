@@ -1,0 +1,29 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_library")
+
+package(default_visibility = ["//visibility:public"])
+
+SRCS = glob(
+    [
+        "**/*.ts",
+    ],
+)
+
+SRC_DEPS = [
+    "@npm//electron",
+    "@npm//@types/node",
+]
+
+ts_library(
+    name = "lib",
+    srcs = SRCS,
+    devmode_module = "commonjs",
+    devmode_target = "es2018",
+    tsconfig = "//:tsconfig",
+    deps = SRC_DEPS,
+)
+
+filegroup(
+    name = "lib.main.js",
+    srcs = ["lib"],
+    output_group = "es5_sources",
+)

@@ -1,0 +1,23 @@
+load("@npm//@bazel/typescript:index.bzl", "ts_config")
+load("@npm//electron:index.bzl", "electron")
+
+package(default_visibility = ["//visibility:public"])
+
+ts_config(
+    name = "tsconfig",
+    src = "tsconfig.json",
+)
+
+electron(
+    name = "app",
+    args = [
+        "/Users/pgherveou/Github/electron-quick-start/bazel-out/darwin-fastbuild/bin/main/index.js",
+        "__",
+        "$(execpaths //main/lib.main.js)",
+    ],
+    data = [
+        "index.html",
+        "//main:lib.main.js",
+        "//renderer:lib",
+    ],
+)
