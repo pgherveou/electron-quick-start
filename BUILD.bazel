@@ -11,13 +11,11 @@ ts_config(
 electron(
     name = "app",
     args = [
-        "/Users/pgherveou/Github/electron-quick-start/bazel-out/darwin-fastbuild/bin/main/index.js",
-        "__",
-        "$(execpaths //main/lib.main.js)",
+        "main/index.js",
     ],
     data = [
         "index.html",
-        "//main:lib.main.js",
+        "//main:lib",
         "//renderer:lib",
     ],
 )
