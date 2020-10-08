@@ -4,7 +4,7 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "upgrade-deps": "npx yarn@1.19.0 upgrade-interactive --latest",
+    "bazel:start": "ibazel --profile_dev=/tmp/bbl-changes.json  run //:app",
     "start": "electron .",
     "build": "tsc",
     "prettier": "prettier --check 'src/**/*.{js,ts,tsx,json}'"

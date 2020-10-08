@@ -6,3 +6,9 @@ console.log('launching app', process.argv)
 console.log('. is', resolve('.'))
 app.on('ready', createWindow)
 app.on('window-all-closed', () => app.quit())
+
+console.log('listening to changes...')
+
+process.stdin.on('data', (buf) => {
+  console.log('stdin:data', buf.toString())
+})

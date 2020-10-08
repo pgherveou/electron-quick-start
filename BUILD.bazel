@@ -16,6 +16,8 @@ electron(
     data = [
         "index.html",
         "//main:lib",
+        "//renderer:css",
         "//renderer:lib",
     ],
+    tags = ["ibazel_notify_changes"],
 )
